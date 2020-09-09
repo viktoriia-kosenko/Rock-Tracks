@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { fetchTracks } from './redux/actionCreators'
+import { useSelector, useDispatch } from 'react-redux'
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch()
+  const { tracks, loading, error } = useSelector((state) => state)
+
+  useEffect(() => {
+    !tracks && !error && dispatch(fetchTracks())
+  }, [dispatch, error, tracks])
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {error && <p>{tracks.error}</p>}
+        {loading && <p>loading ...</p>}
+        {tracks && <pre>{JSON.stringify(tracks, null, 2)}</pre>}
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
