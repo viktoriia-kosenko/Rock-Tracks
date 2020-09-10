@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { useSelector } from 'react-redux'
 import { fetchTrackData } from './api'
+import { formatDate, formatDuration } from './utils'
 
 const TrackScreen = () => {
   const { trackId } = useParams()
@@ -27,21 +28,22 @@ const TrackScreen = () => {
   }, [trackFromStore, trackId])
 
   return track ? (
-    <div className="w-75 mx-auto my-4 d-flex flex-wrap ">
+    <div className="w-75 mx-auto my-4 d-flex flex-wrap justify-content-center">
       <img
-        className="m-2 rounded"
-        height={100}
+        className="m-4 rounded"
+        height={150}
+        width={150}
         src={track.artworkUrl100}
         alt=""
       />
-      <div className="pl-5">
-        <p className="">{track.trackName}</p>
-        <p className="">by {track.artistName}</p>
+      <div className="m-4 ">
+        <p className="font-weight-bold">{track.trackName}</p>
+        <p className="">By {track.artistName}</p>
         <p className="">$ {track.trackPrice}</p>
-        <p className="">Duration: {track.trackTimeMillis}</p>
-        <p className="">releaseDate: {track.releaseDate}</p>
+        <p className="">Duration: {formatDuration(track.trackTimeMillis)}</p>
+        <p className="">Release Date: {formatDate(track.releaseDate)}</p>
         <a href={track.trackViewUrl} target="_blank" rel="noopener noreferrer">
-          trackViewUrl
+          More details ...
         </a>
       </div>
     </div>
