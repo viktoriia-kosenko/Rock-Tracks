@@ -37,8 +37,10 @@ const TrackScreen = () => {
         alt=""
       />
       <div className="m-4 ">
-        <p className="font-weight-bold">{track.trackName}</p>
-        <p className="">By {track.artistName}</p>
+        <p className="font-weight-bold mb-0 track-name text-secondary">
+          {track.trackName}
+        </p>
+        <p className="font-italic">By {track.artistName}</p>
         <p className="">$ {track.trackPrice}</p>
         <p className="">Duration: {formatDuration(track.trackTimeMillis)}</p>
         <p className="">Release Date: {formatDate(track.releaseDate)}</p>

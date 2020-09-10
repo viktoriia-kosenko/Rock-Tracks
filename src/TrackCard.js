@@ -7,10 +7,10 @@ const TrackCard = ({ track }) => {
   return (
     <div className="d-flex border rounded m-2 track-card">
       <img className="m-2 rounded" height={100} src={artworkUrl100} alt="" />
-      <div className="ml-2 p-2 d-flex flex-column justify-content-center">
-        <p className="mb-0">{trackName}</p>
-        <p className="mb-0">by {artistName}</p>
-        <p className="mb-0">$ {trackPrice}</p>
+      <div className="ml-2 p-2 d-flex flex-column">
+        <p className="mb-0 font-weight-bold">{trackName}</p>
+        <p className="mb-0 track-data">by {artistName}</p>
+        <p className="mb-0 track-data">$ {trackPrice}</p>
         <Link to={`track/${trackId}`}>
           <p>Details ...</p>
         </Link>

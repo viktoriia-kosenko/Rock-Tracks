@@ -16,3 +16,11 @@ code {
   width: 325px;
   background: #eee;
 }
+
+.track-name {
+  font-size: 20px;
+}
+
+.track-data {
+  font-size: 14px;
+}
