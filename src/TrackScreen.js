@@ -41,9 +41,9 @@ const TrackScreen = () => {
           {track.trackName}
         </p>
         <p className="font-italic">By {track.artistName}</p>
-        <p className="">$ {track.trackPrice}</p>
-        <p className="">Duration: {formatDuration(track.trackTimeMillis)}</p>
-        <p className="">Release Date: {formatDate(track.releaseDate)}</p>
+        <p>$ {track.trackPrice}</p>
+        <p>Duration: {formatDuration(track.trackTimeMillis)}</p>
+        <p>Release Date: {formatDate(track.releaseDate)}</p>
         <a href={track.trackViewUrl} target="_blank" rel="noopener noreferrer">
           More details ...
         </a>

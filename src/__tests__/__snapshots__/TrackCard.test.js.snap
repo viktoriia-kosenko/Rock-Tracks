@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackCard matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="d-flex border rounded m-2 track-card"
+      >
+        <img
+          alt=""
+          class="m-2 rounded"
+          height="100"
+          src="https://is5-ssl.mzstatic.com/image/thumb/Music123/v4/f4/66/73/f4667376-f04b-855d-6947-5787063fea2d/source/100x100bb.jpg"
+        />
+        <div
+          class="ml-2 p-2 d-flex flex-column"
+        >
+          <p
+            class="mb-0 font-weight-bold"
+          >
+            I Am Rock
+          </p>
+          <p
+            class="mb-0 track-data"
+          >
+            by 
+            Rock
+          </p>
+          <p
+            class="mb-0 track-data"
+          >
+            $ 
+            1.29
+          </p>
+          <a
+            href="/track/1513350083"
+          >
+            <p>
+              Details ...
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="d-flex border rounded m-2 track-card"
+    >
+      <img
+        alt=""
+        class="m-2 rounded"
+        height="100"
+        src="https://is5-ssl.mzstatic.com/image/thumb/Music123/v4/f4/66/73/f4667376-f04b-855d-6947-5787063fea2d/source/100x100bb.jpg"
+      />
+      <div
+        class="ml-2 p-2 d-flex flex-column"
+      >
+        <p
+          class="mb-0 font-weight-bold"
+        >
+          I Am Rock
+        </p>
+        <p
+          class="mb-0 track-data"
+        >
+          by 
+          Rock
+        </p>
+        <p
+          class="mb-0 track-data"
+        >
+          $ 
+          1.29
+        </p>
+        <a
+          href="/track/1513350083"
+        >
+          <p>
+            Details ...
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
