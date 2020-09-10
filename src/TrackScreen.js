@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { useSelector } from 'react-redux'
+import { fetchTrackData } from './api'
 
 const TrackScreen = () => {
   const { trackId } = useParams()
@@ -15,16 +16,7 @@ const TrackScreen = () => {
   useEffect(() => {
     setIsLoading(true)
     !trackFromStore &&
-      fetch(`https://itunes.apple.com/lookup?id=${trackId}`, {
-        method: 'POST'
-      })
-        .then((res) => {
-          if (res.status >= 200 && res.status < 300) {
-            return res.json()
-          } else {
-            throw res
-          }
-        })
+      fetchTrackData(trackId)
         .then((data) => {
           setTrack(data.results[0])
           setIsLoading(false)

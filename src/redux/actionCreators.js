@@ -3,6 +3,7 @@ import {
   FETCH_TRACKS_SUCCESS,
   FETCH_TRACKS_FAILURE
 } from './actionTypes'
+import { fetchTracksData } from '../api'
 
 export const fetchTracksRequest = () => {
   return {
@@ -26,16 +27,7 @@ export const fetchTracksFailure = (error) => {
 export const fetchTracks = () => {
   return (dispatch) => {
     dispatch(fetchTracksRequest())
-    fetch('https://itunes.apple.com/search?term=rock&media=music', {
-      method: 'POST'
-    })
-      .then((res) => {
-        if (res.status >= 200 && res.status < 300) {
-          return res.json()
-        } else {
-          throw res
-        }
-      })
+    fetchTracksData()
       .then((data) => {
         dispatch(fetchTracksSuccess(data))
       })
