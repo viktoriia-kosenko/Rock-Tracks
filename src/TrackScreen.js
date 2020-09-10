@@ -1,14 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { useSelector } from 'react-redux'
 
 const TrackScreen = () => {
   const { trackId } = useParams()
-  const track = useSelector(
+  const trackFromStore = useSelector(
     (state) =>
       state.tracks &&
       state.tracks.results.find((track) => track.trackId + '' === trackId)
   )
+  const [track, setTrack] = useState(trackFromStore)
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    setIsLoading(true)
+    !trackFromStore &&
+      fetch(`https://itunes.apple.com/lookup?id=${trackId}`, {
+        method: 'POST'
+      })
+        .then((res) => {
+          if (res.status >= 200 && res.status < 300) {
+            return res.json()
+          } else {
+            throw res
+          }
+        })
+        .then((data) => {
+          setTrack(data.results[0])
+          setIsLoading(false)
+        })
+        .catch((err) => {
+          setIsLoading(false)
+        })
+  }, [trackFromStore, trackId])
 
   return track ? (
     <div className="w-75 mx-auto my-4 d-flex flex-wrap ">
@@ -24,15 +48,17 @@ const TrackScreen = () => {
         <p className="">$ {track.trackPrice}</p>
         <p className="">Duration: {track.trackTimeMillis}</p>
         <p className="">releaseDate: {track.releaseDate}</p>
-        <a href={track.trackViewUrl} target="_blank">
+        <a href={track.trackViewUrl} target="_blank" rel="noopener noreferrer">
           trackViewUrl
         </a>
       </div>
     </div>
   ) : (
-    <section>
-      <h2>Track not found!</h2>
-    </section>
+    !isLoading && (
+      <section>
+        <h2>Track not found!</h2>
+      </section>
+    )
   )
 }
 
