@@ -3,7 +3,7 @@ import {
   FETCH_TRACKS_SUCCESS,
   FETCH_TRACKS_FAILURE
 } from './actionTypes'
-import { fetchTracksData } from '../api'
+import { fetchTracksData, fetchTrackData } from '../api'
 
 export const fetchTracksRequest = () => {
   return {
@@ -28,6 +28,19 @@ export const fetchTracks = () => {
   return (dispatch) => {
     dispatch(fetchTracksRequest())
     fetchTracksData()
+      .then((data) => {
+        dispatch(fetchTracksSuccess(data))
+      })
+      .catch((err) => {
+        dispatch(fetchTracksFailure('There was an error on the server side'))
+      })
+  }
+}
+
+export const fetchTrack = (trackId) => {
+  return (dispatch) => {
+    dispatch(fetchTracksRequest())
+    fetchTrackData(trackId)
       .then((data) => {
         dispatch(fetchTracksSuccess(data))
       })
