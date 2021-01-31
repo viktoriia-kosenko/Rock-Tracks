@@ -1,23 +1,27 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { formatDate, formatDuration } from './utils'
-import { fetchTrack } from './redux/actionCreators'
 import { useSelector, useDispatch } from 'react-redux'
+import { RootStore } from './redux/store'
+import { TracksStateI } from './redux/tracksReducer'
+import { TrackI } from './redux/tracksActionTypes'
+import { fetchTracks } from './redux/tracksActions'
+
+interface ParamsType{
+  trackId: string
+}
 
 const TrackScreen = () => {
   const dispatch = useDispatch()
-  const { trackId } = useParams()
-  const trackFromStore = useSelector(
-    (state) =>
-      state.tracks &&
-      state.tracks.results.find((track) => track.trackId.toString() === trackId)
-  )
+  const { trackId } = useParams<ParamsType>()
+  const {tracks, loading, error } = useSelector<RootStore, TracksStateI>((state) => state.tracksState)
+const [trackFromStore, setTrackFromStore]=useState<TrackI | undefined>(undefined)
 
-  const { loading, error } = useSelector((state) => state)
 
   useEffect(() => {
-    !trackFromStore && !error && dispatch(fetchTrack(trackId))
-  }, [dispatch, error, trackFromStore])
+    !tracks && !error && dispatch(fetchTracks())
+    const track= tracks?.find(track=>track.trackId.toString()===trackId)
+    track&&setTrackFromStore(track)
+  }, [dispatch, error, trackId, tracks])
 
   if (error) {
     return (
@@ -58,8 +62,8 @@ const TrackScreen = () => {
         </p>
         <p className="font-italic">By {trackFromStore.artistName}</p>
         <p>$ {trackFromStore.trackPrice}</p>
-        <p>Duration: {formatDuration(trackFromStore.trackTimeMillis)}</p>
-        <p>Release Date: {formatDate(trackFromStore.releaseDate)}</p>
+        {/* <p>Duration: {formatDuration(trackFromStore.trackTimeMillis)}</p>
+        <p>Release Date: {formatDate(trackFromStore.releaseDate)}</p> */}
         <a
           href={trackFromStore.trackViewUrl}
           target="_blank"

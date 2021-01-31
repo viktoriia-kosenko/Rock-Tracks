@@ -3,7 +3,7 @@ import {
   FETCH_TRACKS_REQUEST,
   FETCH_TRACKS_SUCCESS,
   FETCH_TRACKS_FAILURE
-} from '../redux/actionTypes'
+} from '../redux/tracksActionTypes'
 
 const initialState = {
   loading: false,

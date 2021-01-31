@@ -1,8 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { TrackI } from './redux/tracksActionTypes'
 
-const TrackCard = ({ track }) => {
-  const { artworkUrl100, trackName, artistName, trackPrice, trackId } = track
+interface TrackCardProps {
+  track: TrackI
+}
+
+const TrackCard: React.FC<TrackCardProps> = ({ track: { artworkUrl100, trackName, artistName, trackPrice, trackId } }) => {
+
   return (
     <div className="d-flex border rounded m-2 track-card">
       <img className="m-2 rounded" height={100} src={artworkUrl100} alt="" />
