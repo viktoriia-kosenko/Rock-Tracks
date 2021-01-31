@@ -13,7 +13,7 @@ const Tracks = () => {
 
   return (
     <div className="w-75 mx-auto my-4 d-flex flex-wrap justify-content-around">
-      {error && <p>{tracks.error}</p>}
+      {error && <p>{error}</p>}
       {loading && <p>loading ...</p>}
 
       {tracks &&

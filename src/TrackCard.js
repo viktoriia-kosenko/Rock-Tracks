@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
 const TrackCard = ({ track }) => {
   const { artworkUrl100, trackName, artistName, trackPrice, trackId } = track
@@ -19,13 +18,4 @@ const TrackCard = ({ track }) => {
   )
 }
 
-TrackCard.propTypes = {
-  track: PropTypes.shape({
-    artworkUrl100: PropTypes.string.isRequired,
-    trackName: PropTypes.string.isRequired,
-    artistName: PropTypes.string.isRequired,
-    trackPrice: PropTypes.number.isRequired,
-    trackId: PropTypes.number.isRequired
-  }).isRequired
-}
 export default TrackCard

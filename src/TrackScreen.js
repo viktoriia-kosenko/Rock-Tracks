@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
-import { fetchTrackData } from './api'
 import { formatDate, formatDuration } from './utils'
 import { fetchTrack } from './redux/actionCreators'
 import { useSelector, useDispatch } from 'react-redux'
