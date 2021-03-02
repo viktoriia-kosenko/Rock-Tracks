@@ -10,7 +10,8 @@ const Tracks = () => {
   const { tracks, loading, error } = useSelector<RootStore, TracksStateI>((state) => state.tracksState)
 
   useEffect(() => {
-    !error && dispatch(fetchTracks())
+    console.log('in use effect')
+    !error && !tracks && dispatch(fetchTracks())
   }, [dispatch, error, tracks])
 
 
