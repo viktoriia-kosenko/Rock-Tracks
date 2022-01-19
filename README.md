@@ -22,7 +22,7 @@ From the repo:
 - State management (Redux): <br />
   When first screen loads it makes api call to fetch a list of tracks. This data is saved to Redux store. Track details screen (screen 2) url contains trackId, which can be accessed through `useParams()`, a react-router hook. This screen has also access to redux store via `useSelector()`, a react-redux hook. `useSelector()` hook looks for the track in Redux store which has the same id as trackId in the page url. If there is no track with the given trackId a new api call is made to fetch the data only for this trackId. <br />
   Every time when user returns from track details screen to first screen, Tracks component checks if there is data in Redux store, in case there is not any data the component dispatch `fetchTracks()` action creator, which connects to an Apple REST web service and retrieve the data from there.
-- Instead
+- Instead of
 
 ```
 connect(mapStateToProps,  mapDispatchToProps)(Component)
