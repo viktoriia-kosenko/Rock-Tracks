@@ -15,7 +15,7 @@ From the repo:
 5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 6. `npm test` to run tests
 
-## Tech Used/Dependencies
+## Tech Used / Dependencies
 
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 - Functional component with react hooks were used to create views.
